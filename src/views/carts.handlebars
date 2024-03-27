@@ -1,0 +1,40 @@
+<h1>Carrito ID {{cart._id}}</h1>
+
+<div>
+    <button>
+        <a href="/products">Volver</a>
+    </button>
+</div>
+
+{{#if cart.products}}
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Código</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Categoría</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th>Subtotal</th>
+    </tr>
+
+    {{#each cart.products}}
+    <tr>
+        <td>{{product._id}}</td>
+        <td>{{product.code}}</td>
+        <td>{{product.title}}</td>
+        <td>{{product.description}}</td>
+        <td>{{product.category}}</td>
+        <td>${{product.price}}</td>
+        <td>{{quantity}}</td>
+        <td>${{total}}</td>
+    </tr>
+    {{/each}}
+</table>
+
+<h2>Total ${{cart.total}}</h2>
+
+{{else}}
+<h2>No hay productos en el carrito</h2>
+{{/if}}

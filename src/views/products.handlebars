@@ -1,0 +1,54 @@
+<h1>Bienvenido {{user.first_name}} {{user.last_name}} ({{user.role}})</h1>
+
+<div>
+    <button>
+        <a href="/carts/{{user.cart}}">Carrito</a>
+    </button>
+
+    <button>
+        <a href="/profile">Perfil</a>
+    </button>
+
+    <button id="btnLogout">Logout</button>
+</div>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Código</th>
+        <th>Título</th>
+        <th>Descripción</th>
+        <th>Categoría</th>
+        <th>Status</th>
+        <th>Precio</th>
+    </tr>
+
+    {{#each products.docs}}
+    <tr>
+        <td>{{id}}</td>
+        <td>{{code}}</td>
+        <td>{{title}}</td>
+        <td>{{description}}</td>
+        <td>{{category}}</td>
+        <td>{{status}}</td>
+        <td>${{price}}</td>
+        <td>
+            <button id="add-to-cart" onclick="addProductToCart('{{id}}', '{{../user.cart}}')">Agregar</button>
+        </td>
+    </tr>
+    {{/each}}
+</table>
+
+<div>
+    {{#if products.hasPrevPage}}
+    <a href={{products.prevLink}}>Anterior</a>
+    {{/if}}
+
+    <p>Página {{products.page}} de {{products.totalPages}}</p>
+
+    {{#if products.hasNextPage}}
+    <a href={{products.nextLink}}>Siguiente</a>
+    {{/if}}
+</div>
+
+<script src="/js/products.js"></script>

@@ -1,0 +1,35 @@
+<h1>Iniciar sesión</h1>
+
+<div>
+    <button>
+        <a href="/api/sessions/github">Entrar con GitHub</a>
+    </button>
+
+    <button>
+        <a href="/register">Registrarse</a>
+    </button>
+
+    <button>
+        <a href="/restore">Restaurar contraseña</a>
+    </button>
+</div>
+
+<form id="loginForm">
+    <fieldset>
+        <div>
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div>
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+
+        <div>
+            <button type="submit">Iniciar sesión</button>
+        </div>
+    </fieldset>
+</form>
+
+<script src="/js/login.js"></script>
